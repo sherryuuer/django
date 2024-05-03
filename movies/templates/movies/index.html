@@ -1,0 +1,21 @@
+{% extends 'movies/_base.html' %}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    {% block content %}
+    <h1>My Movie App {{ date_today }}</h1>
+    {% if movies %}
+    <ul>
+        {% for movie in movies %}
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>There is no movie to display</p>
+    {% endif %}
+    {% endblock %}
+</body>
+
+</html>
