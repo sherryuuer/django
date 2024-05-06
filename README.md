@@ -21,8 +21,6 @@ python manage.py startapp my_app
 - add config/urls
 - Url:view is paired, Path will match from top to buttom
 
-
-
 ### like Make Pizzas:
 
 - 厨房点餐：urls
@@ -82,3 +80,34 @@ Whitenoise 是一个 Python 库，用于在 Web 应用程序中处理静态文�
 
 - 每个 model 都是一个Python Class 代表一个 database table，每个 class 的 attribute 是一个 table 的 field
 - 和数据库表格联动
+- 创建了class后，进行migration：创建指导，和执行（每次进行class修改后都要执行这两行进行更新操作）每次的更新都和前一次有依存关系，很像是拓扑，然后内部会按照这种顺序进行更新
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+- CRUD 使用python进行数据库操作
+```python
+Model.objects.all()
+Model.objects.get(id=1)
+Model.objects.filter(title='ABC')
+```
+- 使用shell可以进行手动操作
+```bash
+python manage.py shell # open the shell
+>>> from movies.models import MoviePosting
+>>> MoviePosting.objects.create(title="铃芽之旅", description="是由新海诚编剧兼执导的日本动画电影，于2022年11月11日在日本国内上映、隔年春季在海外上映。本片为新海诚第8部动画电影[16]，也是他继《你的名字》《天气之子》后，第三部牵涉灾难题材的电影，三片合称作新海诚的“灾难三部曲”。故事讲述少女岩户铃芽、与以关闭灾难之门为使命的“闭门师”宗像草太，为了关闭灾难之门展开一连串的冒险旅程。影片前导标语为“门的那一边，存在着一切的时间——”（扉の向こうには、すべての時間があった——），正式海报标语为“我出发了。”（行ってきます。）", comention="画面很美但是故事尚未达到心理预期，相比较之下还是喜欢你的名字。", rank=6)
+>>> MoviePosting.objects.all()
+>>> movie = MoviePosting.objects.get(id=1)
+>>> movie.rank
+>>> movie.rank = 6.5 # update
+>>> movie.save()
+>>> movie.delete() # delete the data
+```
+- 可以用一些css样式修饰网页
+- can use [tailwindcss](https://tailwindcss.com/)to style page
+
+### Admin
+
+- create a admin: `python manage.py createsuperuser`: sally, sally
+- rerun the server and login
+- register models in admin.py

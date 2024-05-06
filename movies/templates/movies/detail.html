@@ -1,0 +1,15 @@
+{% extends 'movies/_base.html' %}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    {% block content %}
+    <h1>我的电影之旅</h1>
+    <h2>{{ movie.title }}</h2>
+    <hr>
+    <p>{{ movie.description }}</p>
+    {% endblock %}
+</body>
+
+</html>

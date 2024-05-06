@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            width: 60%;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(131, 96, 187);
+            margin: 0 auto;
+        }
+
+        /* 添加样式到表单 */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* 添加样式到提交按钮 */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 添加样式到输入框 */
+        input[type="Name"],
+        input[type="Url"],
+        input[type="Slug"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #e9e6e6;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto">
+        <div class="sm:w-3/4 mx-auto sm:p-10">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{% extends 'links/_base.html' %}
+
+{% block content %}
+<h1 class="text-4xl text-center mb-10">All My Links</h1>
+<a href="{% url 'add-link' %}">
+
+    <button
+        class="inline-flex items-center bg-green-200 border-0 py-2 px-6 focus:outline-none hover:bg-green-300 rounded text-base mt-4 md:mt-0">Add
+        Link
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+    </button>
+</a>
+{% for link in links %}
+<ul>
+    <h2 class="px-4 py-3">{{link.name}}</h2>
+    <li class="px-4 py-3">
+        <a href="{{link.url}}" target="_blank">
+            {{link.url}}
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+        </a>
+        <a href="{% url 'root-link' link.slug %}" target="_blank">
+            {{link.slug}}
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+        </a>
+        <hr>
+    </li>
+</ul>
+{% endfor %}
+{% endblock content %}

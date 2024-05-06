@@ -5,13 +5,13 @@
 
 <body>
     {% block content %}
-    <h1>My Movie App {{ date_today }}</h1>
+    <h2>我的电影之旅 {{ date_today }}</h2>
     {% if movies %}
-    <ul>
-        {% for movie in movies %}
-        <li>{{ movie }}</li>
-        {% endfor %}
-    </ul>
+    {% for movie in movies %}
+    <h3>{{ movie.title }}</h3>
+    <a href="{% url 'movie-detail' movie.pk %}">电影介绍</a>
+    <p>我的评价: {{ movie.comention }} 所以我的评分是 {{ movie.rank }} / 10</p>
+    {% endfor %}
     {% else %}
     <p>There is no movie to display</p>
     {% endif %}
