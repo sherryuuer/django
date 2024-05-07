@@ -106,6 +106,18 @@ python manage.py shell # open the shell
 - 可以用一些css样式修饰网页
 - can use [tailwindcss](https://tailwindcss.com/)to style page
 
+pip install crispy-tailwind
+
+INSTALLED_APPS = (
+    ...
+    "crispy_forms",
+    "crispy_tailwind",
+    ...
+)
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
+
 ### Admin
 
 - create a admin: `python manage.py createsuperuser`: sally, sally
