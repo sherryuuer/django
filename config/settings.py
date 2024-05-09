@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'link_plant',
     "crispy_forms",
     "crispy_tailwind",
-    "trip",
+    'trip',
+    'menu',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +65,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,3 +142,6 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 # MEDIA for image upload path
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# where should the user go after login
+LOGIN_REDIRECT_URL = 'trip-list'

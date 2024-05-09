@@ -2,23 +2,51 @@
 <html>
 
 <head>
-    <style>
-        body {
-            width: 60%;
-            text-align: left;
-            font-family: 'Courier New', Courier, monospace;
-            color: rgb(131, 96, 187);
-            margin: 0 auto;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <div>
-        <a href="{% url 'movie-home' %}">Movies</a>
-        <a href="{% url 'link-home' %}">Links</a>
-        <a href="{% url 'link-list' %}">LinkPlant</a>
-        <a href="{% url 'trip-home' %}">TripTracker</a>
+    <header class="text-gray-600 body-font border-b">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="{% url 'movie-home' %}" class="mr-5 hover:text-gray-900">Movies</a>
+            </nav>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="{% url 'link-home' %}" class="mr-5 hover:text-gray-900">Links</a>
+            </nav>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="{% url 'link-list' %}" class="mr-5 hover:text-gray-900">LinkPlant</a>
+            </nav>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="{% url 'trip-home' %}" class="mr-5 hover:text-gray-900">TripTracker</a>
+            </nav>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="{% url 'menu-home' %}" class="mr-5 hover:text-gray-900">Menu</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto">
+        <div class="sm:w-3/4 mx-auto sm:p-10">
+            <h1>Django is Amazing!</h1>
+        </div>
+    </div>
+    <!-- Markdown Content -->
+    <div class="container mx-auto">
+        <div class="sm:w-3/4 mx-auto sm:p-10">
+            <p><a href="https://docs.djangoproject.com/en/5.0/intro/tutorial01/">documantation tutorial</a></p>
+            <hr>
+            <p>All the tabs above is made by me when I was learning django. Happy a loooot!</p>
+            <p>Movies is the first one, I learned all the basic.</p>
+            <p>Links teach me how to use functions in view and admin.</p>
+            <p>Link-plant make data complict but more intresting!</p>
+            <p>TripTracker is the final and hard one but so good!</p>
+            <p>Menu teach me about the Rest framework, amazing!</p>
+            <br>
+            <h2>Happy discovering!</h2>
+        </div>
     </div>
 </body>
 

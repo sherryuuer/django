@@ -1,3 +1,12 @@
+Check the project by:
+```bash
+python -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+python manage.py runserver
+```
+
+---
 [documantation tutorial](https://docs.djangoproject.com/en/5.0/intro/tutorial01/)
 
 ```bash
@@ -123,3 +132,49 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 - create a admin: `python manage.py createsuperuser`: sally, sally
 - rerun the server and login
 - register models in admin.py
+
+### Auth
+
+Django的内置的Auth方法。需要在config层级，也就是项目层级进行templates的设置。所有的urls和views都在env中可以找到。其实它和一般的app的构造是一样的，区别只是，它是Django内置的。
+
+这里要注意项目层级的templates文件夹和config是同一个层级。而不是在config内部，这里的项目是指django这个最外层文件夹项目。
+
+django
+  - config
+  - templates/registration/login.html
+  - apps
+
+### Django REST Framework
+
+App很多情况下不仅仅是在浏览器中，它需要在website，mobile，store display screen上都可用。
+
+使用一个menu应用来尝试这个框架。
+
+使用JsonResponse也可以得到很好的效果，见menu.views。
+
+安装框架：
+
+```bash
+pip install djangorestframework
+```
+Add to setting app list.
+
+menu/serializers.py
+
+通过它专有的序列化工具，response库，装饰器，可以迅速构架一个api界面，或json格式。
+
+序列化数据：
+
+Serialization（序列化）是指将对象或数据结构转换为可存储或传输的格式的过程，通常是将其转换为字节流或文本流的形式。序列化的主要目的是允许对象在不同系统之间或不同时间点之间进行传输、存储和重建，同时保持其结构和状态的完整性。
+
+在计算机科学中，序列化常见于以下几个方面：
+
+1. **对象序列化（Object Serialization）**：将对象转换为字节流的过程，使得对象可以被存储到文件中、通过网络进行传输，或在内存中保存以供后续使用。Java 中的序列化机制（Serializable 接口）、Python 中的 Pickle 库以及.NET Framework 中的 BinaryFormatter 都提供了对象序列化的实现。
+
+2. **数据序列化（Data Serialization）**：将数据结构（如数组、列表、字典等）转换为字节流或文本流的过程，以便进行存储、传输或持久化。JSON、XML 和 Protocol Buffers 等数据序列化格式都被广泛应用于数据交换和存储。
+
+3. **数据库序列化（Database Serialization）**：将对象或数据结构转换为数据库中的存储格式，以便在数据库中进行持久化存储和检索。ORM（对象关系映射）工具通常会将对象转换为数据库中的行，或将数据库查询结果转换为对象。
+
+4. **内存序列化（Memory Serialization）**：将对象或数据结构转换为内存中的表示形式，以便在内存中进行传递、复制或持久化。这在分布式系统中很常见，如通过消息传递在不同节点之间传递对象。
+
+总的来说，序列化允许将对象或数据结构转换为一种通用的格式，以便在不同的环境中进行传输、存储和处理，是实现数据交换和持久化的重要机制之一。
